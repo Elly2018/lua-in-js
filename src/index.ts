@@ -51,7 +51,7 @@ const execChunk = (_G: Table, chunk: string, chunkName?: string): LuaType[] => {
 }
 
 function createEnv(
-    config: Config = {}
+    config: Config = { encoding: 'x-user-defined' }
 ): {
     parse: (script: string) => Script
     parseFile: (path: string) => Script
@@ -61,7 +61,6 @@ function createEnv(
         LUA_PATH: './?.lua',
         stdin: '',
         stdout: console.log,
-        encoding: 'x-user-defined',
         ...config
     }
 
@@ -88,7 +87,7 @@ function createEnv(
     _G.rawset('require', _require)
 
     const parse = (code: string): Script => {
-        const script = parseScript(code)
+        const script = parseScript(code, cfg.encoding)
         return {
             exec: () => execChunk(_G, script)[0]
         }
