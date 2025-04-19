@@ -53,4 +53,18 @@ let exitCode = 0
     }
 }
 
+{
+    const luaEnv = luainjs.createEnv()
+    let str
+    try {
+        str = luaEnv.parse('return "你好"').exec()
+        console.log(str)
+    } catch (e) {
+        throw Error('encode test failed!')
+    }
+    if (str !== '你好') {
+        throw Error('encode result incorrectly!')
+    }
+}
+
 process.exit(exitCode)

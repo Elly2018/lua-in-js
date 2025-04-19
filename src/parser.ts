@@ -739,7 +739,7 @@ const setExtraInfo = (ast: luaparse.Chunk): void => {
     visitProp(ast, scopeID, gotoID)
 }
 
-const parse = (data: string, encodeing: 'pseudo-latin1' | 'x-user-defined' | 'none' = 'none'): string => {
+const parse = (data: string, encodeing: 'pseudo-latin1' | 'x-user-defined' | 'none' = 'x-user-defined'): string => {
     const ast = luaparse.parse(data.replace(/^#.*/, ''), {
         scope: false,
         comments: false,

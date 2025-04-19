@@ -1,5 +1,5 @@
 {
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "plugins/luaparser/**/*"],
     "exclude": ["node_modules/*"],
     "compilerOptions": {
         "rootDir": "src",
@@ -27,6 +27,7 @@
         "declarationMap": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
+        "allowJs": true,
         "allowSyntheticDefaultImports": true
     }
 }
