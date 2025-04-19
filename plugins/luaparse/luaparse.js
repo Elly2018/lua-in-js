@@ -128,6 +128,7 @@
 
   function checkChars(rx) {
     return function (s) {
+      return s;
       var m = rx.exec(s);
       if (!m)
         return s;
